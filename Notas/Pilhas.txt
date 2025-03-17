@@ -1,0 +1,5 @@
+Uma Pilha é uma sequência de qualquer coisa empilhável, sendo algo parecido com uma fila. A diferença entre fila e pilha
+é que na fila, quando um elemento novo é adicionado, esse elemento vai pro final da fila, enquanto na pilha, o elemento
+vai para o início.
+
+Pilha é um tipo abstrato de dados.
