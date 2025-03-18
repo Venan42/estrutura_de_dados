@@ -3,3 +3,6 @@ Uma Pilha é uma sequência de qualquer coisa empilhável, sendo algo parecido c
 vai para o início.
 
 Pilha é um tipo abstrato de dados.
+
+Ao declarar um objeto que implementa uma interface, quase sempre deve-se 
+criar esse objeto com o mesmo nome da interface.
