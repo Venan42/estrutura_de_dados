@@ -1,0 +1,7 @@
+O conceito de fila é semelhante ao de pilhas, com a diferença de um novo elemento é adicionando no fim da pilha, e 
+o primeiro a entrar será o primeiro a sair, utilizando o FIFO(FIRST IN FIRST OUT)
+
+C  Create   => Enfileirar, o parâmetro do método é um Object dado, e não tem saída.
+R  Read     => Frente, não tem um parâmetro no método, e a saída é um Object dado.
+U  Update   => Atualizar, o parâmetro do método é um Object dado, e não tem saída.
+D  Delete   => Desenfileirar, não tem um parâmetro no método, e a saída é um Object dado.
