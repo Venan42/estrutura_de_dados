@@ -1,4 +1,4 @@
-package Fila;
+package Fila.FilaEstaticaCircular;
 
 public interface Enfileiravel{
     void enfileirar(Object dado);               //Enqueue     

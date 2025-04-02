@@ -1,3 +1,6 @@
+package PilhaInversa;
+import PilhaEstatica.Empilhavel;
+
 public class PilhaInversa implements Empilhavel {
     private int ponteiroTopo;
     private Object[] dados;

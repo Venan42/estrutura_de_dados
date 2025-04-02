@@ -1,4 +1,4 @@
-package Fila;
+package Fila.FilaEstaticaDupla;
 
 public interface DuplamenteEnfileravel{
     void enfileirarInicio(Object dado); 

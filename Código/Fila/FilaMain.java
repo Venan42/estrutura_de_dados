@@ -1,5 +1,11 @@
 package Fila;
 
+import Fila.FilaEstatica.Enfileiravel;
+import Fila.FilaEstatica.FilaEstatica;
+import Fila.FilaEstaticaCircular.FilaEstaticaCircular;
+import Fila.FilaEstaticaDupla.DuplamenteEnfileravel;
+import Fila.FilaEstaticaDupla.FilaEstaticaDupla;
+
 public class FilaMain {
     public static void main(String[] args) {
         Enfileiravel f1 = new FilaEstatica();

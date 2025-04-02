@@ -1,3 +1,9 @@
+import PilhaDupla.EmpilhavelDupla;
+import PilhaDupla.PilhaDupla;
+import PilhaEstatica.Empilhavel;
+import PilhaEstatica.PilhaEstatica;
+import PilhaInversa.PilhaInversa;
+
 public class PilhaMain {
     public static void main(String[] args) {
         Empilhavel p = new PilhaEstatica();

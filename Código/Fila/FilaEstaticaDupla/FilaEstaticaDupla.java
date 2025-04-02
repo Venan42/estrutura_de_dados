@@ -1,4 +1,4 @@
-package Fila;
+package Fila.FilaEstaticaDupla;
 
 public class FilaEstaticaDupla implements DuplamenteEnfileravel{
     private Object[] dados;    

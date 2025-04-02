@@ -1,3 +1,4 @@
+package PilhaInversa;
 public interface Empilhavel {
     public void empilhar(Object dado);
     public Object desempilhar();

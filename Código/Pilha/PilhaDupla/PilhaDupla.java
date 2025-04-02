@@ -1,3 +1,4 @@
+package PilhaDupla;
 public class PilhaDupla implements EmpilhavelDupla {
     public Object[] dados;
     public int ponteiroTopoInverso;

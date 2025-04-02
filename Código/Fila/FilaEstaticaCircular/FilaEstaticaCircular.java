@@ -1,4 +1,6 @@
-package Fila;
+package Fila.FilaEstaticaCircular;
+
+import Fila.FilaEstatica.Enfileiravel;
 
 public class FilaEstaticaCircular implements Enfileiravel{
     private Object[] dados;    
