@@ -65,7 +65,7 @@ public class ListaEstaticaCircular implements Listavel {
                 retorno += dados[i] + ", ";
             }
         }
-        return retorno;
+        return retorno + "]";
     }
 
     @Override
@@ -101,9 +101,10 @@ public class ListaEstaticaCircular implements Listavel {
     public void inserir(Object dado, int posicaoLogica){
         if(!estaCheia()){
             if(posicaoLogica >= 0 && posicaoLogica < quantidade){
-                int posicaoFisica = mapeamento(posicaoLogica), auxQtde = mapeamento(quantidade);
+                int posicaoFisica = mapeamento(posicaoLogica);
 
                 if(posicaoLogica >= quantidade/2){
+                    int auxQtde = mapeamento(quantidade);
                     for(int i = posicaoLogica; i < quantidade; i++){
                         dados[avancar(auxQtde)] = dados[auxQtde];
                         auxQtde--;
@@ -125,6 +126,61 @@ public class ListaEstaticaCircular implements Listavel {
         }else{
             System.err.println("List is Full!");
         }
+    }
+
+    @Override
+    public Object apagar(int posicaoLogica){
+        Object aux = null;
+        if(!estaVazia()){
+            if(posicaoLogica >= 0 && posicaoLogica < quantidade){
+                int posicaoFisica = mapeamento(posicaoLogica);
+                aux = dados[posicaoFisica];
+                int x = posicaoFisica;
+                if(posicaoLogica >= quantidade/2){
+                    for(int i = 0; i < quantidade - posicaoLogica - 1; i++){
+                        dados[x] = dados[avancar(x)];
+                        x++;
+                    }
+                    ponteiroFim = retroceder(ponteiroFim);
+                } else {
+                    for(int i = posicaoLogica; i >= 0; i--){
+                        dados[x] = dados[retroceder(x)];
+                        x--;
+                    }
+                    ponteiroInicio = avancar(ponteiroInicio);
+                }
+                quantidade--;
+                retroceder(ponteiroFim);
+            } else {
+                System.err.println("Index is invalid!");
+            }
+        }else{
+            System.err.println("List is empty!");
+        }
+        return aux;
+    }
+
+    @Override
+    public void limpar(){
+        quantidade = 0;
+        ponteiroFim = -1;
+        ponteiroInicio = 0;
+    }
+
+    @Override
+    public Object[] selecionarTodos(){
+        Object[] aux = null;
+
+        if(!estaVazia()){
+            aux = new String[quantidade];
+            for(int i = 0; i < quantidade; i++){
+                aux[i] = dados[mapeamento(i)];
+            }
+        } else {
+            System.err.println("List is empty!");
+        }
+
+        return aux;
     }
 
 }

@@ -11,7 +11,7 @@ public interface Listavel {
     // U
     public void atualizar(Object dado, int index); // ou void atualizar(int posicao, Object dado); em inglês update
     // D
-    public Object apagar(Object dado, int index); // ou void remover(); em inglês remove
+    public Object apagar(int index); // ou void remover(); em inglês remove
     public void limpar(); // ou void apagarTudo(); em inglês clear 
     public boolean estaCheia(); // ou boolean isCheia(); em inglês isFull
     public boolean estaVazia(); // ou boolean isVazia(); em inglês isEmpty
