@@ -62,7 +62,7 @@ public class ListaEstaticaCircular implements Listavel {
             if (i == quantidade + ponteiroInicio - 1) {
                 retorno += dados[i % dados.length];
             } else {
-                retorno += dados[i] + ", ";
+                retorno += dados[i % dados.length] + ", ";
             }
         }
         return retorno + "]";
@@ -181,6 +181,39 @@ public class ListaEstaticaCircular implements Listavel {
         }
 
         return aux;
+    }
+
+    @Override
+    public boolean contem(Object dado){
+        Boolean aux = false;
+
+        if(!estaVazia()){
+            for(int i = 0; i < quantidade; i++){
+                if(dado == dados[mapeamento(i)]){
+                    aux = true;
+                    break;
+                }
+            }
+        }
+
+        return aux;
+    }
+
+    @Override
+    public int primeiroIndice(Object dado){
+        int aux = -1;
+
+        if(!estaVazia()){
+            for(int i = 0; i < quantidade; i++){
+                if(dado == dados[mapeamento(i)]){
+                    aux = i;
+                    break;
+                }
+            }
+        }
+
+        return aux;
+
     }
 
 }

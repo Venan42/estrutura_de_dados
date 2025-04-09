@@ -5,6 +5,7 @@ public class ListaMain {
         Listavel lista1 = new ListaEstaticaCircular(5);
         Listavel lista2 = new ListaEstaticaCircular(5);
         Listavel lista3 = new ListaEstaticaCircular(10);
+        Listavel lista4 = new ListaEstaticaCircular(50);
         Object[] dados;
 
         lista1.anexar("O");
@@ -34,11 +35,19 @@ public class ListaMain {
 
         dados = lista3.selecionarTodos();
 
+        for(int i = 0; i < 40; i++){
+            lista4.anexar("a");
+        }
+
+        lista4.inserir("b", 8);
+
 
         System.out.println(lista1.imprimir());
         System.out.println(lista2.imprimir());
         System.out.println(lista3.imprimir());
         System.out.println(dados[2]);
+        System.out.println(lista4.imprimir());
+        System.out.println(lista1.primeiroIndice("Astronauta"));
 
 
 

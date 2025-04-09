@@ -6,8 +6,8 @@ import pilha.Empilhavel;
 
 
 public class PilhaComFila implements Empilhavel{
-    private Enfileiravel f1 = new FilaEstaticaCircular();
-    private Enfileiravel f2 = new FilaEstaticaCircular();
+    private Enfileiravel f1;
+    private Enfileiravel f2;
 
     public PilhaComFila(){
         this(10);

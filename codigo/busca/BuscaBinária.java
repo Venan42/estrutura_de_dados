@@ -33,6 +33,6 @@ public class BuscaBinária {
         System.out.println("O numero buscado está na posição: " + index);
         System.out.println("O numero foi encontrado em " + contador + " passos.");
 
-        
+        scanner.close();
     }
 }

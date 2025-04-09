@@ -6,8 +6,8 @@ public interface Listavel {
     // R
     public Object selecionar(int index); // ou Object obter(int posicao); em inglês get
     public Object[] selecionarTodos(); // ou Object[] obterTodos(); em inglês getAll
-    // public boolean contem(Object dado); // ou boolean contem(Object dado); em inglês contains
-    // public int primeiroIndice(Object dado); // ou int primeiroIndice(Object dado); em inglês firstIndex
+    public boolean contem(Object dado); // ou boolean contem(Object dado); em inglês contains
+    public int primeiroIndice(Object dado); // ou int primeiroIndice(Object dado); em inglês firstIndex
     // U
     public void atualizar(Object dado, int index); // ou void atualizar(int posicao, Object dado); em inglês update
     // D
