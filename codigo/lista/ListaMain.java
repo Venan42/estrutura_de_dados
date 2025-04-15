@@ -39,7 +39,7 @@ public class ListaMain {
             lista4.anexar("a");
         }
 
-        lista4.inserir("b", 8);
+        lista4.inserir("b", 0);
 
 
         System.out.println(lista1.imprimir());
