@@ -102,26 +102,27 @@ public class ListaEstaticaCircular implements Listavel {
     @Override
     public void inserir(Object dado, int posicaoLogica){
         if(!estaCheia()){
-            if(posicaoLogica >= 0 && posicaoLogica < quantidade){
+            if(posicaoLogica >= 0 && posicaoLogica <= quantidade){
                 int posicaoFisica = mapeamento(posicaoLogica);
 
                 if(posicaoLogica >= quantidade/2){
-                    int auxQtde = mapeamento(quantidade);
-                    for(int i = quantidade-1; i > posicaoLogica; i--){
-                        dados[auxQtde] = dados[retroceder(auxQtde)];
-                        auxQtde--;
-                    }
                     ponteiroFim = avancar(ponteiroFim);
-                } else {
-                    int ponteiroAux = ponteiroInicio;
-                    for(int i = posicaoLogica; i >= 0; i--){
-                        dados[retroceder(ponteiroAux)] = dados[ponteiroAux];
-                        ponteiroAux++;
+                    int auxFim = ponteiroFim;
+                    for(int i = ponteiroFim; i > posicaoLogica; i--){
+                        dados[auxFim] = dados[retroceder(auxFim)];
+                        auxFim = retroceder(auxFim);
                     }
+                    dados[posicaoFisica] = dado;
+                } else {
                     ponteiroInicio = retroceder(ponteiroInicio);
+                    int ponteiroAux = ponteiroInicio;
+                    for(int i = posicaoLogica-1; i >= 0; i--){
+                        dados[ponteiroAux] = dados[avancar(ponteiroAux)];
+                        ponteiroAux = avancar(ponteiroAux);
+                    }
+                    dados[retroceder(posicaoFisica)] = dado;
                 }
                 quantidade++;
-                dados[posicaoFisica] = dado;
             } else {
                 System.err.println("Index is invalid!");
             }
