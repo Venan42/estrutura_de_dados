@@ -32,15 +32,13 @@ public class ListaMain {
         lista3.anexar("Azul");
         lista3.inserir("Mármore", 6);
         lista3.apagar(1);
+        lista3.apagar(2);
 
         dados = lista3.selecionarTodos();
 
-        for(int i = 0; i < 40; i++){
+        for(int i = 0; i < 8; i++){
             lista4.anexar("a");
         }
-
-        lista4.inserir("b", 0);
-
 
         System.out.println(lista1.imprimir());
         System.out.println(lista2.imprimir());
@@ -48,8 +46,6 @@ public class ListaMain {
         System.out.println(dados[2]);
         System.out.println(lista4.imprimir());
         System.out.println(lista1.primeiroIndice("Astronauta"));
-
-
 
     }
 }

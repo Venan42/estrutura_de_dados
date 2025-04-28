@@ -22,7 +22,7 @@ public class BubbleSort {
         System.out.println(retorno);
 
         int temp;
-        for(int i = 0; i < QTD; i++){
+        for(int i = 0; i < QTD - 1; i++){
             for(int j = i + 1; j < QTD; j++){
                 if(array[i]>array[j]){
                     temp = array[i];

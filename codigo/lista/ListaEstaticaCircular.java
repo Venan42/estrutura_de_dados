@@ -10,13 +10,14 @@ public class ListaEstaticaCircular implements Listavel {
     public ListaEstaticaCircular() {
         this(10);
     }
-    
+
     public ListaEstaticaCircular(int tamanho) {
         dados = new Object[tamanho];
         ponteiroInicio = 0;
         ponteiroFim = -1;
         quantidade = 0;
     }
+
     private int avancar(int aux) {
         return (aux + 1) % dados.length;
     }
@@ -28,13 +29,14 @@ public class ListaEstaticaCircular implements Listavel {
     private int mapeamento(int logica) {
         return (logica + ponteiroInicio) % dados.length;
     }
+
     @Override
     public void atualizar(Object dado, int index) {
         if (!estaVazia()) {
             if (index >= 0 && index < quantidade) {
                 int posicaoFisica = mapeamento(index);
                 dados[posicaoFisica] = dado;
-            } else{
+            } else {
                 System.err.println("Indix invalid!");
             }
         } else {
@@ -69,25 +71,25 @@ public class ListaEstaticaCircular implements Listavel {
     }
 
     @Override
-    public void anexar(Object dado){
-        if(!estaCheia()){
+    public void anexar(Object dado) {
+        if (!estaCheia()) {
             quantidade++;
             ponteiroFim = avancar(ponteiroFim);
             dados[ponteiroFim] = dado;
-        }else{
+        } else {
             System.err.println("List is Full!");
         }
-        
+
     }
 
     @Override
-    public Object selecionar(int posicao){
+    public Object selecionar(int posicao) {
         Object dadoSelect = null;
-        if(!estaVazia()){
-            if(posicao >= 0 && posicao < quantidade){
+        if (!estaVazia()) {
+            if (posicao >= 0 && posicao < quantidade) {
                 int posicaoFisica = mapeamento(posicao);
                 dadoSelect = dados[posicaoFisica];
-            } else{
+            } else {
                 System.err.println("Index is invalid!");
             }
         } else {
@@ -105,8 +107,8 @@ public class ListaEstaticaCircular implements Listavel {
 
                 if(posicaoLogica >= quantidade/2){
                     int auxQtde = mapeamento(quantidade);
-                    for(int i = posicaoLogica; i < quantidade; i++){
-                        dados[avancar(auxQtde)] = dados[auxQtde];
+                    for(int i = quantidade-1; i > posicaoLogica; i--){
+                        dados[auxQtde] = dados[retroceder(auxQtde)];
                         auxQtde--;
                     }
                     ponteiroFim = avancar(ponteiroFim);
@@ -123,7 +125,7 @@ public class ListaEstaticaCircular implements Listavel {
             } else {
                 System.err.println("Index is invalid!");
             }
-        }else{
+        } else {
             System.err.println("List is Full!");
         }
     }
@@ -150,30 +152,29 @@ public class ListaEstaticaCircular implements Listavel {
                     ponteiroInicio = avancar(ponteiroInicio);
                 }
                 quantidade--;
-                retroceder(ponteiroFim);
             } else {
                 System.err.println("Index is invalid!");
             }
-        }else{
+        } else {
             System.err.println("List is empty!");
         }
         return aux;
     }
 
     @Override
-    public void limpar(){
+    public void limpar() {
         quantidade = 0;
         ponteiroFim = -1;
         ponteiroInicio = 0;
     }
 
     @Override
-    public Object[] selecionarTodos(){
+    public Object[] selecionarTodos() {
         Object[] aux = null;
 
-        if(!estaVazia()){
+        if (!estaVazia()) {
             aux = new String[quantidade];
-            for(int i = 0; i < quantidade; i++){
+            for (int i = 0; i < quantidade; i++) {
                 aux[i] = dados[mapeamento(i)];
             }
         } else {
@@ -184,12 +185,12 @@ public class ListaEstaticaCircular implements Listavel {
     }
 
     @Override
-    public boolean contem(Object dado){
+    public boolean contem(Object dado) {
         Boolean aux = false;
 
-        if(!estaVazia()){
-            for(int i = 0; i < quantidade; i++){
-                if(dado == dados[mapeamento(i)]){
+        if (!estaVazia()) {
+            for (int i = 0; i < quantidade; i++) {
+                if (dado == dados[mapeamento(i)]) {
                     aux = true;
                     break;
                 }
@@ -200,12 +201,12 @@ public class ListaEstaticaCircular implements Listavel {
     }
 
     @Override
-    public int primeiroIndice(Object dado){
+    public int primeiroIndice(Object dado) {
         int aux = -1;
 
-        if(!estaVazia()){
-            for(int i = 0; i < quantidade; i++){
-                if(dado == dados[mapeamento(i)]){
+        if (!estaVazia()) {
+            for (int i = 0; i < quantidade; i++) {
+                if (dado == dados[mapeamento(i)]) {
                     aux = i;
                     break;
                 }
