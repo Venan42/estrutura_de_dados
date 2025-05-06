@@ -1,8 +1,8 @@
 package exercicios;
 
 import fila.Enfileiravel;
-import pilha.Empilhavel;
-import pilha.PilhaEstatica;
+import pilha.estatica.Empilhavel;
+import pilha.estatica.PilhaEstatica;
 
 public class FilaComPilha implements Enfileiravel {
     private Empilhavel p1;

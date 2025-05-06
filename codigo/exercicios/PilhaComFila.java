@@ -2,7 +2,7 @@ package exercicios;
 
 import fila.Enfileiravel;
 import fila.FilaEstaticaCircular;
-import pilha.Empilhavel;
+import pilha.estatica.Empilhavel;
 
 
 public class PilhaComFila implements Empilhavel{
