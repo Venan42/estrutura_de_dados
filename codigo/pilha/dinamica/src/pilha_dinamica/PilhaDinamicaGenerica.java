@@ -50,11 +50,11 @@ public class PilhaDinamicaGenerica<T> implements Empilhavel<T>{
         String retorno = "[";
         NodoDuplo<T> ponteiroAux = ponteiroTopo;
 
-        while(ponteiroAux != null){
+        for (int i = 0; i < quantidade; i++) {
             retorno += ponteiroAux.getDado();
-            if(ponteiroAux.getAnterior() == null){
+            if(i != quantidade-1)
                 retorno += ", ";
-            }
+            ponteiroAux = ponteiroAux.getAnterior();
         }
         return retorno + "]";
     }
@@ -70,6 +70,9 @@ public class PilhaDinamicaGenerica<T> implements Empilhavel<T>{
             throw new UnsupportedOperationException("Pilha cheia!");
         NodoDuplo<T> novoNodo = new NodoDuplo<>(dado);
         novoNodo.setAnterior(ponteiroTopo);
+        if (!estaVazia()) {
+			ponteiroTopo.setProximo(novoNodo);
+		}
         ponteiroTopo = novoNodo;
         quantidade++;
     }
