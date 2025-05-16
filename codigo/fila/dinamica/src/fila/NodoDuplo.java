@@ -1,5 +1,6 @@
+package fila;
 
-public class NodoDuplo <T> {
+public class NodoDuplo<T> {
     private NodoDuplo<T> anterior;
     private T dado;
     private NodoDuplo<T> proximo;
@@ -21,7 +22,7 @@ public class NodoDuplo <T> {
     public void setAnterior(NodoDuplo<T> anterior) {
         this.anterior = anterior;
     }
-
+    
     public T getDado() {
         return dado;
     }
@@ -39,7 +40,5 @@ public class NodoDuplo <T> {
     }
 
 
-    
 
-    
 }

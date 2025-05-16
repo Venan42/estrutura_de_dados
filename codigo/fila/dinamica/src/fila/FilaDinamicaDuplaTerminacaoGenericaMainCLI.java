@@ -1,11 +1,10 @@
-
-import java.util.InputMismatchException;
+package fila;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-
+import java.util.InputMismatchException;
 public class FilaDinamicaDuplaTerminacaoGenericaMainCLI {
     public static void main(String[] args) {
-        DuplamenteEnfileiravelGenerica<String> fila = new FilaDuplaDinamicaGenerica<>(7);
+        DuplamenteEnfileiravel<String> fila = new FilaDinamicaDuplaTerminacaoGenerica<>(7);
         Scanner scanner = new Scanner(System.in);
         int opcao;
 
@@ -125,4 +124,5 @@ public class FilaDinamicaDuplaTerminacaoGenericaMainCLI {
         System.out.println("9. Imprimir de Frente para Tras");
         System.out.println("10. Imprimir de Tras para Frente");
     }
+
 }

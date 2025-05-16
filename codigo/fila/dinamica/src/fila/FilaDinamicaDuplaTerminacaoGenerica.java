@@ -1,15 +1,6 @@
-
-/**
- * Classe que implementa os métodos de uma 
- * Fila Duplamente Enfileirável Genérica.
- * 
- * @author Vinícius Nunes de Andrade
- * @version 1 
- * @since 14-05-2025
- */
+package fila;
 import java.util.NoSuchElementException;
-
-public class FilaDuplaDinamicaGenerica<T> implements DuplamenteEnfileiravelGenerica<T> {
+public class FilaDinamicaDuplaTerminacaoGenerica<T> implements DuplamenteEnfileiravel<T> {
     private NodoDuplo<T> ponteiroFim;
     private NodoDuplo<T> ponteiroInicio;
     private int quantidade;
@@ -18,14 +9,14 @@ public class FilaDuplaDinamicaGenerica<T> implements DuplamenteEnfileiravelGener
     /**
      * Construtor vazio da Fila.
      */
-    public FilaDuplaDinamicaGenerica(){
+    public FilaDinamicaDuplaTerminacaoGenerica(){
         this(10);
     }
     /**
      * Construtor que inicializa as variáveis de intância da Fila Dinâmica.
      * @param tamanho indica o tamanho máximo da Fila Dinâmica.
      */
-    public FilaDuplaDinamicaGenerica(int tamanho) {
+    public FilaDinamicaDuplaTerminacaoGenerica(int tamanho) {
         this.tamanho = tamanho;
         quantidade = 0;
         ponteiroFim = null;
@@ -85,12 +76,12 @@ public class FilaDuplaDinamicaGenerica<T> implements DuplamenteEnfileiravelGener
             throw new NoSuchElementException("Queue is Empty!");
         T dadoInicio = ponteiroInicio.getDado();
         ponteiroInicio = ponteiroInicio.getProximo();
+        quantidade--;
         if (!estaVazia())
             ponteiroInicio.setAnterior(null);
         else
             ponteiroFim = null;
 
-        quantidade--;
         return dadoInicio;
     }
 
@@ -105,12 +96,12 @@ public class FilaDuplaDinamicaGenerica<T> implements DuplamenteEnfileiravelGener
             throw new NoSuchElementException("Queue is Empty!");
         T dadoFim = ponteiroFim.getDado();
         ponteiroFim = ponteiroFim.getAnterior();
+        quantidade--;
         if (!estaVazia())
             ponteiroFim.setProximo(null);
         else
             ponteiroFim = null;
 
-        quantidade--;
         return dadoFim;
     }
     
@@ -222,4 +213,13 @@ public class FilaDuplaDinamicaGenerica<T> implements DuplamenteEnfileiravelGener
         return aux + "]";
     }
 
+    /**
+     * Método que limpa a fila.
+     */
+    @Override
+    public void limpar() {
+        quantidade = 0;
+        ponteiroFim = null;
+        ponteiroInicio = null;
+    }
 }

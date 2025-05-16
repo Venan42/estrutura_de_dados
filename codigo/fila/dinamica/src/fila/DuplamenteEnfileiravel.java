@@ -1,6 +1,6 @@
-//compilar um código-fonte específico: 
-//javac src/Enfileiravel.java -d bin
-public interface DuplamenteEnfileiravelGenerica<T>{
+package fila;
+
+public interface DuplamenteEnfileiravel<T> {
     void enfileirarInicio(T dado); 
     void enfileirarFim(T dado); 
 
@@ -18,4 +18,7 @@ public interface DuplamenteEnfileiravelGenerica<T>{
 
     String imprimirTrasFrente();
     String imprimirFrenteTras();
+    
+    void limpar();
+
 }
