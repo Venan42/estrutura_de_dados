@@ -1,3 +1,11 @@
+/**
+ * Código referente a uma Fila Genérica
+ * que cresce de forma dinâmica.
+ * 
+ * @author Vinícius Nunes de Andrade
+ * @version 1
+ * @since 16-05-2025
+ */
 package fila;
 import java.util.NoSuchElementException;
 public class FilaDinamicaDuplaTerminacaoGenerica<T> implements DuplamenteEnfileiravel<T> {
