@@ -1,5 +1,4 @@
 package lista;
-
 import java.util.NoSuchElementException;
 
 public class ListaDinamicaGenerica<T> implements Listavel<T> {
@@ -30,19 +29,12 @@ public class ListaDinamicaGenerica<T> implements Listavel<T> {
     }
 
     @Override
-    public void atualizar(T dado, int index) throws NoSuchElementException{
+    public void atualizar(int index, T dado) throws NoSuchElementException{
         if(estaVazia())
             throw new UnderFlowException("Lista vazia");
         if(index <0 || index >= quantidade)
-            throw new NoSuchElementException("Índice inválido");
-        if (index == quantidade - 1) {
-            ponteiroFim.setDado(dado);
-            return;
-        }
-        if (index == 1) {
-            ponteiroInicio.setDado(dado);
-            return;
-        }
+            throw new IndexOutOfBoundsException("Índice inválido!");
+
         NodoDuplo<T> ponteiroAux = ponteiroInicio;
         for (int i = 0; i < index; i++) {
             ponteiroAux = ponteiroAux.getProximo();
@@ -51,8 +43,40 @@ public class ListaDinamicaGenerica<T> implements Listavel<T> {
     }
 
     @Override
-    public void inserir(T dado, int index) {
+    public void inserir(int index, T dado) throws OverFlowException{
+        if(estaCheia())
+            throw new OverFlowException("Lista cheia!");
+        if(index < 0 || index > quantidade)
+            throw new IndexOutOfBoundsException("Índice inválido!");
+        NodoDuplo<T> novo = new NodoDuplo<>();
+        novo.setDado(dado);
+        NodoDuplo<T> ponteiroAnterior = null;
+        NodoDuplo<T> ponteiroProximo = ponteiroInicio;
         
+        for (int i = 0; i < index; i++) {
+            ponteiroAnterior = ponteiroProximo;
+            ponteiroProximo = ponteiroProximo.getProximo();
+        }
+
+		if (ponteiroAnterior != null) {
+			ponteiroAnterior.setProximo(novo);
+			// se o anterior é nulo é pq a insercao está sendo no inicio
+		} else {
+			ponteiroInicio = novo;
+		}
+
+		if (ponteiroProximo != null) {
+			ponteiroProximo.setAnterior(novo);
+			// se o proximo é nulo é pq a insercao está sendo no fim (append)
+		} else {
+			ponteiroFim = novo;
+		}
+
+
+
+        novo.setAnterior(ponteiroAnterior);
+        novo.setProximo(ponteiroProximo);
+        quantidade++;
     }
 
     @Override
@@ -65,15 +89,17 @@ public class ListaDinamicaGenerica<T> implements Listavel<T> {
             ponteiroFim.setProximo(novo);
         else
             ponteiroInicio = novo;
+        novo.setAnterior(ponteiroFim);
+        ponteiroFim = novo;
         quantidade++;
     }
 
     @Override
-    public T selecionar(int index) throws NoSuchElementException{
+    public T selecionar(int index) throws IndexOutOfBoundsException{
         if(estaVazia())
             throw new UnderFlowException("Lista vazia");
         if(index <0 || index >= quantidade)
-            throw new NoSuchElementException("Índice inválido");
+            throw new IndexOutOfBoundsException("Índice inválido!");
         NodoDuplo<T> novo = ponteiroInicio;
         for (int i = 0; i < index; i++) {
             novo = novo.getProximo();
@@ -96,26 +122,78 @@ public class ListaDinamicaGenerica<T> implements Listavel<T> {
 
     @Override
     public boolean contem(T dado) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean aux = false;
+        NodoDuplo<T> ponteiroAux = ponteiroInicio;
+        for (int i = 0; i < quantidade; i++) {
+            if (ponteiroAux.getDado() == dado) {
+                aux = true;
+                break;
+            }
+            ponteiroAux = ponteiroAux.getProximo();
+        }
+        return aux;
     }
 
     @Override
     public int primeiroIndice(T dado) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        int resp = -1;
+        NodoDuplo<T> ponteiroAux = ponteiroInicio;
+        for (int i = 0; i < quantidade; i++) {
+            resp++;
+            if (ponteiroAux.getDado() == dado) {
+                break;
+            }
+        }
+        return resp;
     }
 
     @Override
-    public T apagar(int index) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public T apagar(int index) throws UnderFlowException {
+        if(estaVazia())
+            throw new UnderFlowException("Lista vazia!");
+        if(index < 0 || index >= quantidade)
+            throw new IndexOutOfBoundsException("Índice inválido!");
+        NodoDuplo<T> ponteiroAux = ponteiroInicio;
+        
+        for (int i = 0; i < index; i++) {
+            ponteiroAux = ponteiroAux.getProximo();
+        }
+        NodoDuplo<T> ponteiroAnteiror = ponteiroAux.getAnterior();
+        NodoDuplo<T> ponteiroProximo = ponteiroAux.getProximo();
+
+        if (ponteiroAnteiror != null) {
+            ponteiroAnteiror.setProximo(ponteiroProximo);
+        } else {
+            ponteiroInicio = ponteiroInicio.getProximo();
+        }
+        if (ponteiroProximo != null) {
+            ponteiroProximo.setAnterior(ponteiroAnteiror);
+        } else {
+            ponteiroFim = ponteiroFim.getAnterior();
+        }
+        quantidade--;
+        return ponteiroAux.getDado();
+
     }
 
     @Override
     public void limpar() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        ponteiroFim = null;
+        ponteiroInicio = null;
+        quantidade = 0;
     }
 
     @Override
     public String imprimir() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String resp = "[";
+        NodoDuplo<T> ponteiroAux = ponteiroInicio;
+        for (int i = 0; i < quantidade; i++) {
+            resp += ponteiroAux.getDado();
+            if (i != quantidade - 1)
+                resp += ", ";
+
+            ponteiroAux = ponteiroAux.getProximo();
+        }
+        return resp + "]";
     }
 }
