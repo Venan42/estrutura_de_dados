@@ -1,5 +1,3 @@
-package lista;
-
 public class NodoDuplo<T> {
     private NodoDuplo<T> anterior;
     private T dado;

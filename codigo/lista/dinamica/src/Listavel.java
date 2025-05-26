@@ -1,5 +1,3 @@
-package lista;
-
 public interface Listavel<T> {
     // C
     public void inserir(int index, T dado); // em inglês insert
