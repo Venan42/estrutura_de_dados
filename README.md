@@ -9,7 +9,7 @@ Dentro do diretório `codigo/`, você encontrará implementações e exemplos re
 * 📁 [**Pilha:**](./codigo/pilha/) Implementações de estruturas de dados do tipo pilha (LIFO).
 * 📁 [**Fila:**](./codigo/fila/) Implementações de estruturas de dados do tipo fila (FIFO).
 * 📁 [**Lista:**](./codigo/lista/) Diversas implementações de listas (dinâmicas, estáticas, encadeadas, etc.).
-* 📁 [**Ordenação:**](./codigo/ordenacao) Algoritmos para organizar coleções de dados (ex: Bubble Sort, Merge Sort, Quick Sort).
+* 📁 [**Ordenação:**](./codigo/ordenacao) Algoritmos para organizar coleções de dados (ex: Bubble Sort, Selection Sort, Insertion Sort).
 * 📁 [**Busca:**](./codigo/busca) Algoritmos para encontrar elementos em coleções de dados.
 
 ## 📄 Documentação do Código
