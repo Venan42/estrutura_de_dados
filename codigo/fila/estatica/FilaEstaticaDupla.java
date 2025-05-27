@@ -1,5 +1,3 @@
-package fila;
-
 public class FilaEstaticaDupla implements DuplamenteEnfileravel {
     private Object[] dados;
     private int ponteiroInicio;

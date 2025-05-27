@@ -1,10 +1,3 @@
-package exercicios;
-
-import fila.Enfileiravel;
-import fila.FilaEstaticaCircular;
-import pilha.estatica.Empilhavel;
-
-
 public class PilhaComFila implements Empilhavel{
     private Enfileiravel f1;
     private Enfileiravel f2;
@@ -18,34 +11,53 @@ public class PilhaComFila implements Empilhavel{
         this.f2 = new FilaEstaticaCircular(numero);
     }
 
+    private boolean transferir(Enfileiravel origem, Enfileiravel destino) {
+        while (!origem.estaVazia()) {
+            if (destino.estaCheia()) {
+                System.err.println("Erro ao transferir: fila cheia.");
+                return false;
+            }
+            destino.enfileirar(origem.desenfileirar());
+        }
+        return true;
+    }
+
     @Override
-    public void empilhar(Object dado){
-        if(!estaCheia()){
-            while(!f1.estaVazia()){
-                f2.enfileirar(f1.desenfileirar());
-            } 
-            f2.enfileirar(dado);
-            while(!f2.estaVazia()){
-                f1.enfileirar(f2.desenfileirar());
-            } 
-        } else{
+    public int tamanho() {
+        return f1.tamanho();
+    }
+
+    @Override
+    public void empilhar(Object dado) {
+        if (!estaCheia()) {
+            if (!transferir(f1, f2)) return;
+
+            if (!f2.estaCheia()) {
+                f2.enfileirar(dado);
+            } else {
+                System.err.println("Stack is full (ao enfileirar novo elemento)!");
+                return;
+            }
+
+            if (!transferir(f2, f1)) return;
+        } else {
             System.err.println("Stack is full!");
         }
-    
     }
 
     @Override
     public Object desempilhar(){
         Object aux = null;
-        if(!estaVazia()){
-            while(!f1.estaVazia()){
-                f2.enfileirar(f1.desenfileirar());
-            } 
-            aux = f2.desenfileirar();
-            while(!f2.estaVazia()){
-                f1.enfileirar(f2.desenfileirar());
-            } 
-        } else{
+        if (!estaVazia()) {
+            while (f1.tamanho() > 1) {
+                transferir(f1, f2);
+            }
+            aux = f1.desenfileirar(); // este é o último elemento inserido (topo da pilha)
+            // agora inverte de volta
+            while (!f2.estaVazia()) {
+                transferir(f2, f1);
+            }
+        } else {
             System.err.println("Stack is empty!");
         }
 
@@ -77,6 +89,7 @@ public class PilhaComFila implements Empilhavel{
         if(!estaVazia()){
             while(!f1.estaVazia()){
                 f2.enfileirar(f1.desenfileirar());
+                System.out.println(f2.imprimir());
             } 
             aux = f2.frente();
             while(!f2.estaVazia()){

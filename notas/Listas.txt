@@ -1,0 +1,21 @@
+Listas são coleções ordenadas de elementos onde cada item possui uma posição específica (índice).
+Diferentemente das filas ou pilhas que têm regras rígidas de inserção e remoção apenas nas extremidades,
+as listas permitem adicionar, remover e acessar elementos em qualquer posição.
+
+Um elemento pode ser inserido no início, no meio ou no fim da lista, e a ordem dos demais elementos é
+geralmente mantida ou ajustada conforme a operação.
+
+CRUD:
+C Create (Criar) => Inserir ou Anexar.
+* Inserir: Adiciona um elemento em um índice específico. O parâmetro do método geralmente é um índice e um Object dado. Não tem saída (void).
+* Anexar: Adiciona um elemento ao final da lista. O parâmetro do método é um Object dado. Não tem saída (void).
+
+R Read (Ler) => Selecionar ou Buscar.
+* Selecionar: Retorna o elemento de um índice específico. O parâmetro do método é um índice. A saída é um Object dado.
+* Buscar: Verifica se um elemento existe ou retorna seu índice. O parâmetro é um Object dado. A saída pode ser um boolean ou o índice (inteiro).
+
+U Update (Atualizar) => Atualizar.
+* Atualiza o elemento em um índice específico. O parâmetro do método geralmente é um índice e um novo Object dado. Não tem saída (void).
+
+D Delete (Deletar) => Apagar ou Remover.
+* Remove o elemento de um índice específico. O parâmetro do método é um índice. A saída é o Object dado que foi removido.

@@ -1,0 +1,17 @@
+Uma Pilha é uma sequência de qualquer coisa empilhável, sendo algo parecido com uma fila. A diferença entre fila e pilha
+é que na fila, quando um elemento novo é adicionado, esse elemento vai pro final da fila, enquanto na pilha, o elemento
+vai para o início.
+
+Pilha é um tipo abstrato de dados.
+
+CRUD:
+C Create (Criar) => Empilhar (Push).
+* Adiciona um elemento no topo da pilha. O parâmetro do método é um Object dado. Não tem saída (void).
+
+R Read (Ler) => Topo (Peek ou Top).
+* Retorna o elemento do topo da pilha sem removê-lo. Não tem parâmetro no método. A saída é um Object dado.
+
+U Update (Atualizar) => Geralmente não é uma operação padrão em pilhas puras. Para modificar um elemento, você normalmente precisaria desempilhar elementos até chegar ao desejado, modificar e reempilhar.
+
+D Delete (Deletar) => Desempilhar (Pop).
+* Remove e retorna o elemento do topo da pilha. Não tem parâmetro no método. A saída é o Object dado que foi removido.

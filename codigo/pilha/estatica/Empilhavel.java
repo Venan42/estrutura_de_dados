@@ -1,5 +1,3 @@
-package pilha.estatica;
-
 public interface Empilhavel {
     public void empilhar(Object dado);
     public Object desempilhar();
@@ -9,5 +7,6 @@ public interface Empilhavel {
     public Object espiar();
     public boolean estaCheia();
     public boolean estaVazia();
+    public int tamanho();
 
 }

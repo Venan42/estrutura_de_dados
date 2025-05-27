@@ -1,5 +1,3 @@
-package fila;
-
 public interface Enfileiravel{
     public void enfileirar(Object dado);               //Enqueue     
     public Object frente();                            //Front
@@ -10,4 +8,5 @@ public interface Enfileiravel{
     public boolean estaCheia();
     public boolean estaVazia();
     public String imprimir();
+    public int tamanho();
 }

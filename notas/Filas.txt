@@ -1,0 +1,15 @@
+O conceito de fila é semelhante ao de pilhas, com a diferença de um novo elemento é adicionando no fim da pilha, e o
+primeiro a entrar será o primeiro a sair, utilizando o FIFO(FIRST IN FIRST OUT)
+
+CRUD:
+C Create (Criar) => Enfileirar (Enqueue)
+* Adiciona um novo elemento ao final da fila. O parâmetro é um Object dado. Não possui saída.
+
+R Read (Ler) => Frente (Front, Peek)
+* Consulta o elemento no início da fila, sem removê-lo. Não possui parâmetros. A saída é um Object dado.
+
+U Update (Atualizar) => Atualizar Frente/Fim (updateFront/updateLast). Atualiza o elemento da frente ou do fim
+(se acessível). Não é uma operação FIFO padrão para elementos no meio. O parâmetro é um Object dado. Não possui saída.
+
+D Delete (Deletar) => Desenfileirar (Dequeue). Remove e retorna o elemento do início da fila. Não possui parâmetros.
+A saída é o Object dado removido.

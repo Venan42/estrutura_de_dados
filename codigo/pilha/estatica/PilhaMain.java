@@ -1,5 +1,3 @@
-package pilha.estatica;
-
 public class PilhaMain {
     public static void main(String[] args) {
         Empilhavel p = new PilhaEstatica();

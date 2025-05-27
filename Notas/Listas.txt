@@ -1,1 +1,0 @@
-Todas as pilhas e filas são listas com características específicas

@@ -1,5 +1,3 @@
-package pilha.estatica;
-
 public class PilhaInversa implements Empilhavel {
     private int ponteiroTopo;
     private Object[] dados;
@@ -12,8 +10,13 @@ public class PilhaInversa implements Empilhavel {
         this.dados = new Object[tamanho];
         ponteiroTopo = dados.length;
     }
-    
-    //Métodos necessários 
+
+    @Override
+    public int tamanho() {
+        return dados.length - ponteiroTopo;
+    }
+
+    //Métodos necessários
     @Override
     public void empilhar(Object dado){
         if(!this.estaCheia()) {

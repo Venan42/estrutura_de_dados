@@ -1,5 +1,3 @@
-package pilha.estatica;
-
 public class PilhaEstatica implements Empilhavel{
     public Object[] dados;
     public int ponteiroTopo;
@@ -24,13 +22,18 @@ public class PilhaEstatica implements Empilhavel{
     }
 
     @Override
+    public int tamanho() {
+        return ponteiroTopo + 1;
+    }
+
+    @Override
     public Object desempilhar(){
         Object aux = null;
         if(!this.estaVazia()) {
             aux = dados[ponteiroTopo];
             ponteiroTopo--;
         } else {
-            System.err.println("Stack is empty");
+            System.err.println("Stack is empty!");
         }
 
         return aux;

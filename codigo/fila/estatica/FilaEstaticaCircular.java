@@ -1,5 +1,3 @@
-package fila;
-
 public class FilaEstaticaCircular implements Enfileiravel{
     private Object[] dados;    
     private int ponteiroInicio; 
@@ -15,6 +13,11 @@ public class FilaEstaticaCircular implements Enfileiravel{
         this.ponteiroInicio = 0;
         this.ponteiroFim = -1;
         this.quantidade = 0;
+    }
+
+    @Override
+    public int tamanho() {
+        return quantidade;
     }
 
     @Override

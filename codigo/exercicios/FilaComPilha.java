@@ -1,9 +1,3 @@
-package exercicios;
-
-import fila.Enfileiravel;
-import pilha.estatica.Empilhavel;
-import pilha.estatica.PilhaEstatica;
-
 public class FilaComPilha implements Enfileiravel {
     private Empilhavel p1;
     private Empilhavel p2;
@@ -16,7 +10,12 @@ public class FilaComPilha implements Enfileiravel {
         p1 = new PilhaEstatica(tamanho);
         p2 = new PilhaEstatica(tamanho);
     }
-    
+
+    @Override
+    public int tamanho() {
+        return p1.tamanho();
+    }
+
     @Override
     public void enfileirar(Object dado) {
         if(!estaCheia()){

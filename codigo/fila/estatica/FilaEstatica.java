@@ -1,5 +1,3 @@
-package fila;
-
 public class FilaEstatica implements Enfileiravel{
     private Object[] dados;    
     private int ponteiroInicio; //head
@@ -13,6 +11,11 @@ public class FilaEstatica implements Enfileiravel{
         this.dados = new Object[tamanho];
         this.ponteiroInicio = 0;
         this.ponteiroFim = -1;
+    }
+
+    @Override
+    public int tamanho() {
+        return (ponteiroFim - ponteiroInicio + dados.length)% dados.length;
     }
 
     @Override

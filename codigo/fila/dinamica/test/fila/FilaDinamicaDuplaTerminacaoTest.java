@@ -1,9 +1,6 @@
 package fila;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
-import fila.DuplamenteEnfileiravel;
-import fila.FilaDinamicaDuplaTerminacaoGenerica;
 import java.util.NoSuchElementException;
 
 public class FilaDinamicaDuplaTerminacaoTest {
