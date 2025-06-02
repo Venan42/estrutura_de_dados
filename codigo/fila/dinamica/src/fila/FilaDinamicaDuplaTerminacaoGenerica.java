@@ -1,3 +1,6 @@
+package fila;
+
+import java.util.NoSuchElementException;
 /**
  * Código referente a uma Fila Genérica
  * que cresce de forma dinâmica.
@@ -6,8 +9,6 @@
  * @version 1
  * @since 16-05-2025
  */
-package fila;
-import java.util.NoSuchElementException;
 public class FilaDinamicaDuplaTerminacaoGenerica<T> implements DuplamenteEnfileiravel<T> {
     private NodoDuplo<T> ponteiroFim;
     private NodoDuplo<T> ponteiroInicio;
@@ -230,4 +231,5 @@ public class FilaDinamicaDuplaTerminacaoGenerica<T> implements DuplamenteEnfilei
         ponteiroFim = null;
         ponteiroInicio = null;
     }
+
 }

@@ -11,6 +11,7 @@ Dentro do diretório `codigo/`, você encontrará implementações e exemplos re
 * 📁 [**Lista:**](./codigo/lista/) Diversas implementações de listas (dinâmicas, estáticas, encadeadas, etc.).
 * 📁 [**Ordenação:**](./codigo/ordenacao) Algoritmos para organizar coleções de dados (ex: Bubble Sort, Selection Sort, Insertion Sort).
 * 📁 [**Busca:**](./codigo/busca) Algoritmos para encontrar elementos em coleções de dados.
+* 📁 [**Heap:**](./codigo/heap)Algoritmo utilizado para fila de prioridades.
 
 ## 📄 Documentação do Código
 
@@ -20,4 +21,4 @@ Para gerar a documentação HTML, utilize: javadoc -d doc src/*.java
 
 ## ✅ Testes Unitários
 
-A qualidade e a corretude das implementações são verificadas através de **testes unitários**. Foi utilizados frameworks de teste (como JUnit) para criar casos de teste que validam os diferentes aspectos e funcionalidades das estruturas de dados e algoritmos implementados.
+A qualidade e funcionamento das implementações são verificadas através de **testes unitários**. Foi utilizados frameworks de teste (como JUnit) para criar casos de teste que validam os diferentes aspectos e funcionalidades das estruturas de dados e algoritmos implementados.

@@ -1,0 +1,39 @@
+Árvore Binária Heap => Completa a esquerda
+Fila de prioridades
+Ex:     (A) -> nó raiz
+        / \
+      (B) (C) -> nó folha/filho     (B) -> sub-árvore
+      / \                           / \
+    (D) (E)                       (D) (E)
+
+-Utiliza um array para fazer a árvore
+MAX-Heap
+-O nó genitor de seus nós é sempre maior que seus filhos
+Ex:
+|30|10|20|5|2|7| | | -> 30
+                      /    \
+                     10    20
+                    / \   /
+                   5   2 7
+E se inserir 40?
+
+|30|10|20|5|2|7|40| | -> 30
+                       /    \
+                      10    20
+                     / \   /  \
+                    5   2 7   40 <- precisa trocar
+depois da troca ->       40
+                       /    \
+                      10    30
+                     / \   /  \
+                    5   2 7   20
+-essas trocas funcionam em log de n
+funções necessárias:
+    >int indiceGenitor(int filho)       => return (filho - 1)/2
+    >int indiceFilhoEsquerdo(int pai)   => return pai * 2 + 1
+    >int indiceFilhoDireito(int pai)    => return pai * 2 + 2
+-ao eliminar o nó genitor:
+    >o ultimo nó adicionado é colocado como raiz
+    >esse nó é comparado com o filho a direita, até ordenar essa árvore
+    >a arvore vira heap novamente
+MIN-Heap
