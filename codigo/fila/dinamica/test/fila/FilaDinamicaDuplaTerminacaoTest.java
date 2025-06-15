@@ -1,4 +1,6 @@
-package fila;
+package fila.dinamica.test.fila;
+import fila.DuplamenteEnfileiravel;
+import fila.FilaDinamicaDuplaTerminacaoGenerica;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.NoSuchElementException;
