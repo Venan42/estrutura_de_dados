@@ -1,4 +1,4 @@
-package heap;
+package heap.maxima.src;
 
 public interface Amontoavel<T> {
     void inserir(T dado) throws Exception;

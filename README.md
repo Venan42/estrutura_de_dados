@@ -11,7 +11,7 @@ Dentro do diretório `codigo/`, você encontrará implementações e exemplos re
 * 📁 [**Lista:**](./codigo/lista/) Diversas implementações de listas (dinâmicas, estáticas, encadeadas, etc.).
 * 📁 [**Ordenação:**](./codigo/ordenacao) Algoritmos para organizar coleções de dados (ex: Bubble Sort, Selection Sort, Insertion Sort).
 * 📁 [**Busca:**](./codigo/busca) Algoritmos para encontrar elementos em coleções de dados.
-* 📁 [**Heap:**](./codigo/heap)Algoritmo utilizado para fila de prioridades.
+* 📁 [**Heap:**](./codigo/heap)Algoritmo utilizado para fila de prioridades, baseado no conceito de árvores.
 
 ## 📄 Documentação do Código
 

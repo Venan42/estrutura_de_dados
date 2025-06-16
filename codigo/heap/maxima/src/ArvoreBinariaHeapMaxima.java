@@ -1,4 +1,4 @@
-package heap;
+package heap.maxima.src;
 
 import java.util.NoSuchElementException;
 
@@ -49,20 +49,28 @@ public class ArvoreBinariaHeapMaxima<T> implements Amontoavel<T> {
         }
     }
 
-    private void ajustarAbaixoRec(int pai){
-        int esq = indiceFilhoDireito(pai);
-        int dir = indiceFilhoDireito(pai);
-        int indiceMaior = pai;
-        if((int)dados[esq] > (int) dados[indiceMaior]){
-            indiceMaior = esq;
-        }
-        if((int)dados[dir] > (int) dados[indiceMaior]){
-            indiceMaior = dir;
+    private void ajustarAbaixoRecursivo(int pai) {
+        int filhoEsquerdo = indiceFilhoEsquerdo(pai);
+        int filhoDireito = indiceFilhoDireito(pai);
+        int maior = pai;
+
+        //está dentro dos indices válidos do array, no intervalo [0, ponteiroFim]
+        if (filhoEsquerdo <= ponteiroFim) {
+            if ((int)dados[filhoEsquerdo] > (int)dados[maior]) {
+                maior = filhoEsquerdo;
+            }
         }
 
-        if(indiceMaior != pai){
-            trocar(indiceMaior, pai);
-            ajustarAbaixoRec(indiceMaior);
+        //está dentro dos indices válidos do array, no intervalo [0, ponteiroFim]
+        if (filhoDireito <= ponteiroFim) {
+            if ((int)dados[filhoDireito] > (int)dados[maior]) {
+                maior = filhoDireito;
+            }
+        }
+
+        if (maior != pai) {
+            trocar(pai, maior);
+            ajustarAbaixoRecursivo(maior);
         }
     }
 
@@ -85,18 +93,16 @@ public class ArvoreBinariaHeapMaxima<T> implements Amontoavel<T> {
 
     @Override
     public T extrair() throws Exception {
-        T dadoRaiz = null;
-        if(estaVazia()){
-            throw new Exception("Heap is full!");
+        if (estaVazia()) {
+            throw new Exception("Heap Vazia!");
         }
-
-        dadoRaiz = dados[0];
+        T dadoRaiz = dados[0];
         dados[0] = dados[ponteiroFim];
         ponteiroFim--;
-        ajustarAcima(ponteiroFim);
+        ajustarAbaixoRecursivo(0);
+
         return dadoRaiz;
     }
-
     @Override
     public String imprimir() {
         String aux = "[";
