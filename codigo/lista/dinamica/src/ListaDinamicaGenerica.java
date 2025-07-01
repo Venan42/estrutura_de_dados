@@ -127,14 +127,14 @@ public class ListaDinamicaGenerica<T> implements Listavel<T> {
         if(estaCheia())
             throw new OverFlowException("Fila cheia!"); // A mensagem "Fila cheia" pode ser um engano, deveria ser "Lista cheia"
         NodoDuplo<T> novo = new NodoDuplo<>(dado);
-        //novo.setAnterior(ponteiroFim); // Esta linha parece redundante devido à lógica abaixo
+        //novo.setFilhoEsquerdo(ponteiroFim); // Esta linha parece redundante devido à lógica abaixo
         if (!estaVazia()) {
             ponteiroFim.setProximo(novo);
             novo.setAnterior(ponteiroFim); // anterior do novo é o antigo fim
         } else {
             ponteiroInicio = novo; // Se vazia, novo é o início e o fim
         }
-        //novo.setAnterior(ponteiroFim); // Esta linha está incorreta aqui ou redundante com a de cima
+        //novo.setFilhoEsquerdo(ponteiroFim); // Esta linha está incorreta aqui ou redundante com a de cima
         ponteiroFim = novo; // Novo nó é sempre o novo fim
         quantidade++;
     }

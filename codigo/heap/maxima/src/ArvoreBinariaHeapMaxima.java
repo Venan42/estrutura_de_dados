@@ -105,15 +105,15 @@ public class ArvoreBinariaHeapMaxima<T> implements Amontoavel<T> {
     }
     @Override
     public String imprimir() {
-        String aux = "[";
+        StringBuilder aux = new StringBuilder("[");
 
         for(int i=0; i <=ponteiroFim; i++){
-            aux += dados[i];
+            aux.append(dados[i]);
             if(i !=ponteiroFim){
-                aux += ", ";
+                aux.append(", ");
             }
         }
-        return aux;
+        return aux.toString();
     }
 
     @Override

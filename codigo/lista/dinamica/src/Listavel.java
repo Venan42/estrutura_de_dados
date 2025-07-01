@@ -1,6 +1,6 @@
 public interface Listavel<T> {
     // C
-    public void inserir(int index, T dado); // em inglês insert
+    public void inserir(int index, T dado) throws Exception; // em inglês insert
     public void anexar(T dado); // em inglês append
     // R
     public T selecionar(int index); //em inglês get

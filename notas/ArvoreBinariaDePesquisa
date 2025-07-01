@@ -1,0 +1,11 @@
+nodo triplo, contendo informação de filho esquerdo, direito e genitor
+
+tem 3 métodos de apagar:
+é feito comparações nos filhos anteriormente, para saber se esse filho é o esquerdo ou o direito.
+-apagar um nó com 0 filhos
+    > apenas apagar a referencia que leva do genitor para esse método.
+-apagar um nó com 1 filhos
+    > seto o genitor do filho para o genitor desse nó;
+      seto o filho respectivo do genitor para o filho do nó apagado
+-apagar um nó com 2 filhos
+    > shiiiiiiiiii fudeu

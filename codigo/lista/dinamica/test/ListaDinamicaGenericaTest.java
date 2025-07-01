@@ -59,7 +59,7 @@ public class ListaDinamicaGenericaTest {
     }
 
     @Test
-    public void testInserir() {
+    public void testInserir() throws Exception{
         Listavel<String> lista = new ListaDinamicaGenerica<>(3);
         lista.inserir(0, "A");
         lista.inserir(1, "C");
@@ -70,7 +70,7 @@ public class ListaDinamicaGenericaTest {
     }
 
     @Test
-    public void testInserirPosicaoInvalida() {
+    public void testInserirPosicaoInvalida() throws Exception{
         Listavel<String> lista = new ListaDinamicaGenerica<>(3);
         try {
             lista.inserir(1, "A");
@@ -210,7 +210,7 @@ public class ListaDinamicaGenericaTest {
     }
 
     @Test
-    public void testOperacoesCombinadas() {
+    public void testOperacoesCombinadas() throws Exception{
         Listavel<String> lista = new ListaDinamicaGenerica<>(5);
         lista.anexar("A");
         lista.inserir(1, "B");

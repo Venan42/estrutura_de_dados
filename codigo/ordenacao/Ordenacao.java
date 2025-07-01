@@ -3,7 +3,11 @@ package ordenacao;
 import java.util.Arrays;
 
 public class Ordenacao {
-    static int array[] = {18, 19, 5, 13, 7, 2, 14, 16, 4, 11, 7, 20, 2, 19, 7};
+    private int array[];
+
+    public Ordenacao(int tamanho){
+        array = new int[tamanho];
+    }
 
     public void bubbleSort() {
         for (int i = 0; i < array.length - 1; i++) {
@@ -70,6 +74,32 @@ public class Ordenacao {
             }
         }
     }
+    public static void quickSort(int[] arranjo, int inicio, int fim) {
+        if (inicio < fim) {
+            int pivoIndex = particionar(arranjo, inicio, fim);
+            quickSort(arranjo, inicio, pivoIndex - 1); // Lado esquerdo
+            quickSort(arranjo, pivoIndex + 1, fim);   // Lado direito
+        }
+    }
+
+    private static int particionar(int[] arranjo, int inicio, int fim) {
+        int pivo = arranjo[fim]; // escolhe o último elemento como pivô
+        int i = inicio - 1; // índice do menor elemento
+        for (int j = inicio; j < fim; j++) {
+            if (arranjo[j] <= pivo) {
+                i++;
+                trocar(arranjo, i, j);
+            }
+        }
+        trocar(arranjo, i + 1, fim); // coloca o pivô na posição correta
+        return i + 1; // retorna o índice do pivô
+    }
+
+    private static void trocar(int[] arranjo, int i, int j) {
+        int temp = arranjo[i];
+        arranjo[i] = arranjo[j];
+        arranjo[j] = temp;
+    }
 
     private void troca(int i, int j) {
         int temp = array[i];
@@ -85,7 +115,7 @@ public class Ordenacao {
     }
 
     public static void main(String[] args) {
-        Ordenacao ordem = new Ordenacao();
+        Ordenacao ordem = new Ordenacao(10);
         int[] dados1 = {1, 2, 6, 4, 2, 6, 8, 2};
         int[] dados2 = {7, 8, 5, 3, 7, 2, 4, 5};
         ordem.imprimir();
