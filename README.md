@@ -11,9 +11,8 @@ Dentro do diretório `codigo/`, você encontrará implementações e exemplos re
 * 📁 [**Lista:**](./codigo/lista/) Diversas implementações de listas (dinâmicas, estáticas, encadeadas, etc.).
 * 📁 [**Ordenação:**](./codigo/ordenacao) Algoritmos para organizar coleções de dados (ex: Bubble Sort, Selection Sort, Insertion Sort).
 * 📁 [**Busca:**](./codigo/busca) Algoritmos para encontrar elementos em coleções de dados.
-* 📁 [**Heap:**](./codigo/heap)Algoritmo utilizado para fila de prioridades, baseado no conceito de árvores.
-* 📁 [**Arvore de Pesquisa:**](./codigo/abp)Algoritmo utilizado para fila de prioridades, baseado no conceito de árvores.
-
+* 📁 [**Heap:**](./codigo/heap) Algoritmos utilizados para fila de prioridades, baseado no conceito de árvores.
+* 📁 [**Árvore Binária de Pesquisa (ABP):**](./codigo/abp) Implementações de árvores binárias de busca, estruturas que permitem inserção, remoção e busca eficiente de elementos.
 ## 📄 Documentação do Código
 
 O código-fonte neste repositório é documentado utilizando o padrão **Javadoc**. Isso significa que classes, métodos e atributos importantes possuem comentários explicativos que podem ser usados para gerar uma documentação HTML completa, facilitando o entendimento da arquitetura e do funcionamento de cada componente.
