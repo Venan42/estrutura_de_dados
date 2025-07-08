@@ -10,11 +10,11 @@ public class ABP<T extends Comparable<T>> implements Arborivel<T> {
     }
 
     @Override
-    public void inserir(T dado) {
-        NodoTriplo<T> novoNodo = new NodoTriplo<>(dado);
+    public void inserir(T dado) throws IllegalArgumentException {
         if (dado == null) {
             throw new IllegalArgumentException("Dado não pode ser nulo");
         }
+        NodoTriplo<T> novoNodo = new NodoTriplo<>(dado);
         if (raiz == null) {
             raiz = novoNodo;
         } else {
@@ -153,4 +153,81 @@ public class ABP<T extends Comparable<T>> implements Arborivel<T> {
         }
         return null;
     }
+
+    public String imprimirPreOrdem() {
+        return imprimirPreOrdemRec(raiz);
+    }
+
+    private String imprimirPreOrdemRec(NodoTriplo<T> no) {
+        if(no == null)
+            return "";
+        return no.getDado() + " " +
+                imprimirPreOrdemRec(no.getFilhoEsquerdo()) + " " +
+                imprimirPreOrdemRec(no.getFilhoDireito());
+    }
+
+    public String imprimirEmOrdem() {
+        return imprimirEmOrdemRec(raiz);
+    }
+
+    private String imprimirEmOrdemRec(NodoTriplo<T> no) {
+        if(no == null)
+            return "";
+        return imprimirPreOrdemRec(no.getFilhoEsquerdo()) + " " +
+                no.getDado() +
+                imprimirPreOrdemRec(no.getFilhoDireito());
+    }
+
+    public String imprimirPosOrdem() {
+        return imprimirPosOrdemRec(raiz);
+    }
+
+    private String imprimirPosOrdemRec(NodoTriplo<T> no) {
+        if(no == null)
+            return "";
+        return imprimirPreOrdemRec(no.getFilhoEsquerdo()) + " " +
+                imprimirPreOrdemRec(no.getFilhoDireito()) + " " +
+                no.getDado();
+    }
+
+    public int contarPreOrdem() {
+        return contarPreOrdemRec(raiz);
+    }
+    private int contarPreOrdemRec(NodoTriplo<T> no) {
+        if(no == null)
+            return 0;
+        return 1 +
+                contarPreOrdemRec(no.getFilhoEsquerdo()) +
+                contarPreOrdemRec(no.getFilhoDireito());
+    }
+
+    public int somarPreOrdem() {
+        return somarPreOrdemRec(raiz);
+    }
+
+    private int somarPreOrdemRec(NodoTriplo<T> no) {
+        if(no == null)
+            return 0;
+        return (Integer) no.getDado() +
+                somarPreOrdemRec(no.getFilhoEsquerdo()) +
+                somarPreOrdemRec(no.getFilhoDireito());
+    }
+
+    private boolean ehFolha(NodoTriplo<T> no) {
+        return (no.getFilhoEsquerdo() == null) && (no.getFilhoDireito() == null);
+    }
+
+    public int contarFolhasPreOrdem() {
+        return contarFolhasPreOrdemRec(raiz);
+    }
+
+    private int contarFolhasPreOrdemRec(NodoTriplo<T> no) {
+        if(no == null)
+            return 0;
+        if(ehFolha(no))
+            return 1;
+        return contarFolhasPreOrdemRec(no.getFilhoEsquerdo()) +
+                contarFolhasPreOrdemRec(no.getFilhoDireito());
+    }
+
 }

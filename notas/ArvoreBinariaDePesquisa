@@ -9,3 +9,15 @@ tem 3 métodos de apagar:
       seto o filho respectivo do genitor para o filho do nó apagado
 -apagar um nó com 2 filhos
     > shiiiiiiiiii fudeu
+
+-AVL
+    > fator de balanceamento (-1, 0, -1): filhos a direita (0...) - filhos a esquerda (0...);
+    > caso o nó saia dos valores possíveis do fator de balanceamente, este nó está desbalanceado e precisa
+    se balancear a partir de algum algoritmo de balanceamento.
+    > algoritmos de balanceamento:
+        >rotação simples a direita: arvore rotaciona a direita, de forma que o filho esquerdo do nó
+        desbalanceado assume o lugar desse nó, o balanceando.
+        >rotação simples a esquerda: arvore rotaciona a direita, de forma que o filho direito do nó
+        desbalanceado assume o lugar desse nó, o balanceando.
+        >rotação complexa a direita:
+        >rotação complexa a esquerda:
