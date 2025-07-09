@@ -229,5 +229,18 @@ public class ABP<T extends Comparable<T>> implements Arborivel<T> {
         return contarFolhasPreOrdemRec(no.getFilhoEsquerdo()) +
                 contarFolhasPreOrdemRec(no.getFilhoDireito());
     }
+    //Exercício 5.
+    public int nodosNaoFolha() {
+        return nodosNaoFolhaRec(raiz);
+    }
+    private int nodosNaoFolhaRec(NodoTriplo<T> no){
+        if(no == null || ehFolha(no))
+            return 0;
+        return 1 + nodosNaoFolhaRec(no.getFilhoEsquerdo()) + nodosNaoFolhaRec(no.getFilhoDireito());
+    }
 
+    //Exercício 10.
+    public boolean arvoresIguais(ABP<T> arvore2){
+        return imprimirEmOrdem().equals(arvore2.imprimirEmOrdem());
+    }
 }

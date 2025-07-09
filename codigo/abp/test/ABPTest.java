@@ -94,4 +94,22 @@ public class ABPTest {
         abp.limpar();
         assertNull(abp.getRaiz());
     }
+
+    @Test
+    public void testNodosNaoFolhaComArvoreCompleta() {
+        abp.inserir(10);
+        abp.inserir(5);
+        abp.inserir(15);
+        abp.inserir(3);
+        abp.inserir(7);
+        // Árvore: 10 tem dois filhos, 5 tem dois filhos, 15 é folha, 3 e 7 são folhas
+        // Nodos não folha: 10 e 5 (total 2)
+        assertEquals(2, abp.nodosNaoFolha());
+    }
+
+    @Test
+    public void testNodosNaoFolhaArvoreVazia() {
+        // Árvore vazia deve retornar 0
+        assertEquals(0, abp.nodosNaoFolha());
+    }
 }
