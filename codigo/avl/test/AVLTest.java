@@ -15,9 +15,9 @@ public class AVLTest {
 
     @Test
     public void testInserir() {
+        avl.inserir(6);
         avl.inserir(10);
-        avl.inserir(20);
-        avl.inserir(30);
+        avl.inserir(7);
         // Verifica se a árvore está balanceada após inserções
         assertTrue(avl.estaBalanceada());
     }
@@ -49,12 +49,30 @@ public class AVLTest {
     }
 
     @Test
-    public void testImprimir() {
+    public void testImprimirEmOrdem() {
         avl.inserir(10);
         avl.inserir(20);
         avl.inserir(30);
         String expected = "10 20 30"; // Formato esperado da impressão
         assertEquals(expected, avl.imprimirEmOrdem());
+    }
+
+    @Test
+    public void testImprimirPreOrdem() {
+        avl.inserir(10);
+        avl.inserir(20);
+        avl.inserir(30);
+        String expected = "10 20 30"; // Formato esperado da impressão
+        assertEquals(expected, avl.imprimirPreOrdem());
+    }
+
+    @Test
+    public void testImprimirPosOrdem() {
+        avl.inserir(10);
+        avl.inserir(20);
+        avl.inserir(30);
+        String expected = "30 20 10"; // Formato esperado da impressão
+        assertEquals(expected, avl.imprimirPosOrdem());
     }
 
     @Test

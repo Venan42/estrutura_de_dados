@@ -287,39 +287,39 @@ public class AVL<T extends Comparable<T>> implements Arborivel<T> {
 
 
     public String imprimirPreOrdem() {
-        return imprimirPreOrdemRec(raiz);
+        return imprimirPreOrdemRec(raiz).trim();
     }
 
     private String imprimirPreOrdemRec(NodoTriplo<T> no) {
         if(no == null)
             return "";
         return no.getDado() + " " +
-                imprimirPreOrdemRec(no.getFilhoEsquerdo()) + " " +
+                imprimirPreOrdemRec(no.getFilhoEsquerdo()) +
                 imprimirPreOrdemRec(no.getFilhoDireito());
     }
 
     public String imprimirEmOrdem() {
-        return imprimirEmOrdemRec(raiz);
+        return imprimirEmOrdemRec(raiz).trim();
     }
 
     private String imprimirEmOrdemRec(NodoTriplo<T> no) {
         if(no == null)
             return "";
-        return imprimirPreOrdemRec(no.getFilhoEsquerdo()) + " " +
-                no.getDado() +
-                imprimirPreOrdemRec(no.getFilhoDireito());
+        return imprimirEmOrdemRec(no.getFilhoEsquerdo()) +
+                no.getDado() + " " +
+                imprimirEmOrdemRec(no.getFilhoDireito());
     }
 
     public String imprimirPosOrdem() {
-        return imprimirPosOrdemRec(raiz);
+        return imprimirPosOrdemRec(raiz).trim();
     }
 
     private String imprimirPosOrdemRec(NodoTriplo<T> no) {
         if(no == null)
             return "";
-        return imprimirPreOrdemRec(no.getFilhoEsquerdo()) + " " +
-                imprimirPreOrdemRec(no.getFilhoDireito()) + " " +
-                no.getDado();
+        return imprimirPosOrdemRec(no.getFilhoEsquerdo()) +
+                imprimirPosOrdemRec(no.getFilhoDireito()) +
+                no.getDado() + " ";
     }
 
     public int contarPreOrdem() {
