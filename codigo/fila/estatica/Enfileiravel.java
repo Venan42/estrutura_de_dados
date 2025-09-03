@@ -1,3 +1,4 @@
+package fila.estatica;
 public interface Enfileiravel{
     public void enfileirar(Object dado);               //Enqueue     
     public Object frente();                            //Front

@@ -1,3 +1,5 @@
+package pilha.estatica;
+
 public interface Empilhavel {
     public void empilhar(Object dado);
     public Object desempilhar();

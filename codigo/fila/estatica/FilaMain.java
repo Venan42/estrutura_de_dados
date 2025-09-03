@@ -1,3 +1,4 @@
+package fila.estatica;
 public class FilaMain {
     public static void main(String[] args) {
         Enfileiravel f1 = new FilaEstatica();

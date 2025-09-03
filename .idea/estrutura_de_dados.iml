@@ -7,7 +7,6 @@
       <sourceFolder url="file://$MODULE_DIR$/codigo/lista/dinamica/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/codigo/lista/dinamica/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/codigo/pilha/dinamica/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/codigo/pilha/estatica" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/codigo" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/provas" isTestSource="false" />
     </content>

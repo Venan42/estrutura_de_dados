@@ -1,3 +1,5 @@
+package pilha.estatica;
+
 public class PilhaInversa implements Empilhavel {
     private int ponteiroTopo;
     private Object[] dados;

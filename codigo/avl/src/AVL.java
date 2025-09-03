@@ -143,7 +143,7 @@ public class AVL<T extends Comparable<T>> implements Arborivel<T> {
                 } else {//se a comparação der negativa, vá para a esquerda.
                     if (aux.getFilhoDireito() != null) {//checando se existe esquerda.
                         aux = aux.getFilhoEsquerdo();
-                    } else {//se o aux não puder ir para a direita, significa que o novoNodo entra na esquerda de aux.
+                    } else {//se o aux não puder ir para a esquerda, significa que o novoNodo entra na esquerda de aux.
                         aux.setFilhoEsquerdo(novoNodo);
                         novoNodo.setGenitor(aux);
 

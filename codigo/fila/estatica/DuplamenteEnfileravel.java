@@ -1,3 +1,4 @@
+package fila.estatica;
 public interface DuplamenteEnfileravel{
     void enfileirarInicio(Object dado); 
     void enfileirarFim(Object dado); 

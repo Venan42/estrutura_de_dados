@@ -1,3 +1,4 @@
+package fila.estatica;
 public class FilaEstaticaCircular implements Enfileiravel{
     private Object[] dados;    
     private int ponteiroInicio; 
