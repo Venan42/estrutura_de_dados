@@ -2,7 +2,7 @@ package fila.estatica;
 public interface Enfileiravel{
     public void enfileirar(Object dado);               //Enqueue     
     public Object frente();                            //Front
-    public void atualizarInicio(Object dado);          //Update head
+    public void atualizarInicio(Object dado);          //Update peekHead
     public void atualizarFim(Object dado);             //Uptade trail
     public Object desenfileirar();                     //Dequeue
    

@@ -2,7 +2,7 @@ package monitoria;
 
 public class Main {
     public static void main(String[] args) {
-        Queue a = new Queue();
+        QueueCircular a = new QueueCircular();
         a.insert(1);
         a.insert(2);
         a.insert(3);

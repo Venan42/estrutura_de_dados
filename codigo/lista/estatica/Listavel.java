@@ -1,4 +1,5 @@
-package lista;
+package lista.estatica;
+
 public interface Listavel {
     // C
     public void inserir(Object dado, int index); // em inglês insert

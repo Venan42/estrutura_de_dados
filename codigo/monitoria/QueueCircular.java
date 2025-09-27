@@ -1,24 +1,39 @@
 package monitoria;
 
-public class Queue implements Queueable{
+public class QueueCircular implements Queueable {
     private Object[] data;
-    private int head;
     private int tail;
+    private int head;
     private int quantity;
 
-    public Queue() {
+    public QueueCircular() {
         this(10);
     }
 
-    public Queue(int size) {
+    public QueueCircular(int size) {
         data = new Object[size];
         head = 0;
         tail = -1;
+        quantity = 0;
+    }
+
+    private int next(int number) {
+        return (number + 1)%data.length;
+    }
+
+    private int less(int number) {
+        return (number - 1 + data.length)%data.length;
+    }
+
+    @Override
+    public int size() {
+        return quantity;
     }
 
     private boolean isEmpty() {
         return quantity == 0;
     }
+
     private boolean isFull() {
         return quantity == data.length;
     }
@@ -26,7 +41,7 @@ public class Queue implements Queueable{
     @Override
     public void insert(Object element) {
         if(!isFull()) {
-            tail++;
+            tail = next(tail);
             data[tail] = element;
             quantity++;
         } else {
@@ -35,13 +50,26 @@ public class Queue implements Queueable{
     }
 
     @Override
-    public Object head() {
+    public Object peekHead() {
         Object aux = null;
-        if(!isEmpty()) {
+        if(!isFull()) {
             aux = data[head];
         } else {
-            System.err.println("Queue is empty!");
+            System.err.println("Queue is full!");
         }
+
+        return aux;
+    }
+
+    @Override
+    public Object peekTail() {
+        Object aux = null;
+        if(!isFull()) {
+            aux = data[tail];
+        } else {
+            System.err.println("Queue is full!");
+        }
+
         return aux;
     }
 
@@ -49,12 +77,13 @@ public class Queue implements Queueable{
     public Object remove() {
         Object aux = null;
         if(!isEmpty()) {
-            aux = data[head];
-            head++;
+            aux = data[tail];
+            tail = less(tail);
             quantity--;
         } else {
             System.err.println("Queue is empty!");
         }
+
         return aux;
     }
 
@@ -78,14 +107,14 @@ public class Queue implements Queueable{
 
     @Override
     public String print() {
-        String aux = "["; // [8,7,9, , , , , , , ] -> [8, 7, 9]
-        for(int i = head; i <= tail; i++) {
+        String aux = "[";
+        for(int i = 0; i <= tail; i++) {
             aux += data[i];
 
             if(i != tail) {
                 aux += ", ";
             }
         }
-        return aux + "]"; // []
+        return aux + "]";
     }
 }

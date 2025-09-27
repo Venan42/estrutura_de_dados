@@ -1,8 +1,8 @@
 package fila.estatica;
 public class FilaEstatica implements Enfileiravel{
     private Object[] dados;    
-    private int ponteiroInicio; //head
-    private int ponteiroFim;    //tail
+    private int ponteiroInicio; //peekHead
+    private int ponteiroFim;    //peekTail
 
     public FilaEstatica() {
         this(10);

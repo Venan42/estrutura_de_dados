@@ -4,7 +4,8 @@ public interface Queueable {
     //CRUD
     void insert(Object dado);
 
-    Object head();
+    Object peekHead();
+    Object peekTail();
 
     Object remove();
 
@@ -13,4 +14,6 @@ public interface Queueable {
     void updateTail(Object element);
 
     String print();
+
+    int size();
 }

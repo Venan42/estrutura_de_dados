@@ -1,4 +1,4 @@
-package lista;
+package lista.estatica;
 
 public class ListaEstaticaCircular implements Listavel {
 
@@ -101,34 +101,32 @@ public class ListaEstaticaCircular implements Listavel {
 
     @Override
     public void inserir(Object dado, int posicaoLogica){
-        if(!estaCheia()){
-            if(posicaoLogica >= 0 && posicaoLogica <= quantidade){
-                int posicaoFisica = mapeamento(posicaoLogica);
-
-                if(posicaoLogica >= quantidade/2){
-                    ponteiroFim = avancar(ponteiroFim);
-                    int auxFim = ponteiroFim;
-                    for(int i = ponteiroFim; i > posicaoLogica; i--){
-                        dados[auxFim] = dados[retroceder(auxFim)];
-                        auxFim = retroceder(auxFim);
-                    }
-                    dados[posicaoFisica] = dado;
-                } else {
-                    ponteiroInicio = retroceder(ponteiroInicio);
-                    int ponteiroAux = ponteiroInicio;
-                    for(int i = posicaoLogica-1; i >= 0; i--){
-                        dados[ponteiroAux] = dados[avancar(ponteiroAux)];
-                        ponteiroAux = avancar(ponteiroAux);
-                    }
-                    dados[retroceder(posicaoFisica)] = dado;
-                }
-                quantidade++;
-            } else {
-                System.err.println("Index is invalid!");
-            }
-        } else {
-            System.err.println("List is Full!");
+        if(estaCheia()) {
+            System.err.println("List is full!");
         }
+
+        if(posicaoLogica > quantidade || posicaoLogica < 0) {
+            System.err.println("Invalid index!");
+        }
+        int posicaoFisica = mapeamento(posicaoLogica);
+        if(posicaoLogica >= quantidade/2) {
+            ponteiroFim = avancar(ponteiroFim);
+            int auxFim = ponteiroFim;
+            for(int i = quantidade; i > posicaoLogica; i--) {
+                dados[auxFim] = dados[retroceder(auxFim)];
+                auxFim = retroceder(auxFim);
+            }
+            dados[posicaoFisica] = dado;
+        } else {
+            ponteiroInicio = retroceder(ponteiroInicio);
+            int auxInicio = ponteiroInicio;
+            for (int i = 0; i < posicaoLogica; i++) {
+                dados[auxInicio] = dados[avancar(auxInicio)];
+                auxInicio = avancar(auxInicio);
+            }
+            dados[retroceder(posicaoFisica)] = dado;
+        }
+        quantidade++;
     }
 
     @Override
@@ -187,7 +185,7 @@ public class ListaEstaticaCircular implements Listavel {
 
     @Override
     public boolean contem(Object dado) {
-        Boolean aux = false;
+        boolean aux = false;
 
         if (!estaVazia()) {
             for (int i = 0; i < quantidade; i++) {
