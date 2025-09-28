@@ -58,10 +58,19 @@ public class ListaGabarito {
     //N -> tamanho do array
     //MOD -> %
 
-    //A) FALSO, (INS + 1) MOD N
-    //B) VERDADEIRO
-    //C) VERDADEIRO
-    //D) VERDADEIRO
+    //A)  Incorreta. A expressão correta seria: Ins = (Ins + 1) % N; A forma (Ins MOD N)+1
+    //    pode fazer Ins ultrapassar o limite superior do array se Ins já for N-1. Por exemplo,
+    //    (5 MOD 6) + 1 = 6, o que está fora do intervalo válido 0..5;
+    //B)  Correta. Para deleção, caso a fila não esteja vazia, atribuímos a Prim o valor de
+    //    ((Prim+1) MOD N), pois, após remover o elemento da posição Prim, devemos avançar o
+    //    índice Prim para a próxima posição, usando a indexação circular: Prim = (Prim + 1) % N;
+    //C)  Incorreta. Mesmo que Prim=Ins realmente indique corretamente quando a fila está vazia,
+    //    podemos concluir errôneamente que que a  fila está vazia, quando na verdade ela estiver
+    //    cheia, porque as condições são equivalentes. Exatamente por este motivo, que nas estruturas
+    //    de dados circulares não usamos os ponteiros para isEmpty e isFull, e sim a quantidade de elementos;
+    //D)  Incorreta. Prim = ((Ins + 1) MOD N) não indica quando a fila está cheia,  pois quando a fila
+    //    está cheia Prim=Ins. Por curiosidade, Prim = ((Ins + 1) MOD N) indicaria quando faltasse apenas
+    //    uma posição livre antes que a fila se tornasse cheia.
 
     /**
      * Questao 3 - Implemente um método em Java boolean parentesisCheck(String input)
