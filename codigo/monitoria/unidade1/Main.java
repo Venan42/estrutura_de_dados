@@ -1,4 +1,4 @@
-package monitoria;
+package monitoria.unidade1;
 
 public class Main {
     public static void main(String[] args) {
