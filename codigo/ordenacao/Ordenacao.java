@@ -64,10 +64,10 @@ public class Ordenacao {
     }
 
     public void insertionSort() {
-        for (int j = 1; j < array.length; j++) {
-            for (int i = j - 1; i >= 0; i--) {
-                if (array[i + 1] < array[i]) {
-                    troca(i + 1, i);
+        for (int i = 1; i < array.length; i++) {
+            for (int j = i - 1; j >= 0; j--) {
+                if (array[j + 1] < array[j]) {
+                    troca(j + 1, j);
                 } else {
                     break;
                 }

@@ -88,7 +88,7 @@ public class ListaDinamicaGenerica<T> implements Listavel<T> {
     public void inserir(int index, T dado) throws OverFlowException, IndexOutOfBoundsException {
         if(estaCheia())
             throw new OverFlowException("Lista cheia!");
-        if(index < 0 || index > quantidade) // Permite inserir no final (index == quantidade)
+        if(index < 0 || index > quantidade)
             throw new IndexOutOfBoundsException("Índice inválido!");
         NodoDuplo<T> novo = new NodoDuplo<>();
         novo.setDado(dado);
