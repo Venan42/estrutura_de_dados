@@ -6,9 +6,9 @@ import java.util.Random;
 public class Ordenacao {
     public static void bubbleSort(int[] dados) {
         for (int i = 0; i < dados.length - 1; i++) {
-            for(int j = i + 1; j < dados.length; j++) {
-                if(dados[j] < dados[i]) {
-                    troca(dados, j, i);
+            for(int j = 0; j < dados.length - i - 1; j++) {
+                if(dados[j] > dados[j + 1]) {
+                    troca(dados, j, j + 1);
                 }
             }
         }
@@ -58,7 +58,7 @@ public class Ordenacao {
 
         System.out.println(Arrays.toString(dados));
 
-        insertionSort(dados);
+        bubbleSort(dados);
 
         System.out.println(Arrays.toString(dados));
     }
